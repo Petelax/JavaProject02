@@ -1,6 +1,8 @@
 package javaproject02.engine;
 
-public class CharacterStats {
+import java.io.Serializable;
+
+public class CharacterStats implements Serializable {
     public int hp = 0;
     public int atk = 0;
     public CharacterStats (int hp, int atk) {

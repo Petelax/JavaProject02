@@ -1,6 +1,8 @@
 package javaproject02.engine;
 
-public class Character {
+import java.io.Serializable;
+
+public class Character implements Serializable {
     private CharacterStats maxStats;
     private CharacterStats currentStats;
     private String name;

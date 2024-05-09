@@ -5,7 +5,7 @@ package javaproject02;
 
 public class App {
     public static void main(String[] args) {
-        @SuppressWarnings("unused")
         Game game = new Game();
+        game.run();
     }
 }
