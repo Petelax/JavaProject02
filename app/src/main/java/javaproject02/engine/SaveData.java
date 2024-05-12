@@ -11,7 +11,7 @@ public class SaveData implements Serializable {
      * @param name name of save
      */
     public SaveData(String name) {
-        player = new Player("player", new CharacterStats(10, 2));
+        player = new Player("player", new CharacterStats(10, 2), new Inventory());
     }
 
     /**

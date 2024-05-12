@@ -1,14 +1,22 @@
 package javaproject02.engine;
 
 public class Fight {
-    private Character player;
+    private Player player;
     private Character enemy;
-    public Fight(Character a, Character b) {
+    private Menu menu = Menu.getInstance();
+    public Fight(Player a, Character b) {
         this.player = a;
         this.enemy = b;
     }
 
-    public void fight() {
+    public boolean getResults() {
+        System.out.println(player.getName() + ": " + player.getHP() + "/" + player.getMaxStats().hp);
+        System.out.println(enemy.getName() + ": " + enemy.getHP() + "/" + enemy.getMaxStats().hp);
+
+        menu.ask(new String[]{"Attack", "Items"});
+
+
+        return false;
 
     }
 

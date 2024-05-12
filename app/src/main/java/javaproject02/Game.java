@@ -1,6 +1,7 @@
 package javaproject02;
 
 import javaproject02.engine.*;
+import javaproject02.engine.Character;
 
 public class Game {
     private Menu menu;
@@ -13,17 +14,34 @@ public class Game {
     private void init() {
         menu = Menu.getInstance();
         saveFile = new SaveFile();
-        player = new Player("player", new CharacterStats(10, 2));
+        player = new Player("player", new CharacterStats(10, 2), new Inventory(1));
     }
 
     public void run() {
-        saveFile.writeSave(getSaveData());
+        levelOne();
 
-        var answer = menu.ask(new String[]{"hi", "yo", "dab", "lol"});
+    }
 
-        System.out.println(answer);
+    public void levelOne() {
+        System.out.println("You have entered the dungeon.");
+        System.out.println("Before you stands two doors: the left door appears as a normal door and the right door has skulls on it.");
 
-        saveFile.readSave("test");
+        int door = menu.ask(new String[]{"Left door", "Right door"});
+
+        switch (door) {
+            case 0:
+                Fight goblin = new Fight(player, new Character("goblin", 5, 1));
+                
+                break;
+        
+            case 1:
+
+                break;
+
+            default:
+                break;
+        }
+        System.out.println(door);
 
     }
 
