@@ -17,5 +17,9 @@ public class Player extends Character {
         return inventory;
     }
 
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
 
 }

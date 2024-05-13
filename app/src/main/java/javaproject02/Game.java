@@ -1,5 +1,7 @@
 package javaproject02;
 
+import java.util.Random;
+
 import javaproject02.engine.*;
 import javaproject02.engine.Character;
 
@@ -14,7 +16,7 @@ public class Game {
     private void init() {
         menu = Menu.getInstance();
         saveFile = new SaveFile();
-        player = new Player("player", new CharacterStats(10, 2), new Inventory(1));
+        player = new Player("Player", new CharacterStats(10, 2), new Inventory(2, 1));
     }
 
     public void run() {
@@ -30,7 +32,13 @@ public class Game {
 
         switch (door) {
             case 0:
-                Fight goblin = new Fight(player, new Character("goblin", 5, 1));
+                System.out.println("You encountered a goblin!");
+                Fight goblin = new Fight(player, new Character("Goblin", 5, 2));
+                var result = goblin.getResults();
+                if (!result) {
+                    System.out.println("You died!");
+
+                }
                 
                 break;
         
@@ -41,7 +49,6 @@ public class Game {
             default:
                 break;
         }
-        System.out.println(door);
 
     }
 

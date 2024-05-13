@@ -47,8 +47,20 @@ public class Character implements Serializable {
 
     }
 
-    public int attack(int dmg) {
+    /**
+     * current attack stat
+     * @return current attack stat
+     */
+    public int attack() {
         return currentStats.atk;
+    }
+
+    /**
+     * increase current hp
+     * @param hp amount to increase by
+     */
+    public void heal(int hp) {
+        this.currentStats.hp += hp;
     }
 
 }
