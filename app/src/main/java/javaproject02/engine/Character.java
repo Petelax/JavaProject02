@@ -22,6 +22,10 @@ public class Character implements Serializable {
         return maxStats;
     }
 
+    public void setMaxStats(CharacterStats stats) {
+        this.maxStats = stats;
+    }
+
     public CharacterStats getCurrentStats() {
         return currentStats;
     }
@@ -61,6 +65,13 @@ public class Character implements Serializable {
      */
     public void heal(int hp) {
         this.currentStats.hp += hp;
+    }
+
+    /**
+     * increase current hp to max hp
+     */
+    public void maxHeal() {
+        this.currentStats.hp = this.maxStats.hp;
     }
 
 }

@@ -77,6 +77,8 @@ public class Fight {
 
             if (enemy.getHP() <= 0) {
                 System.out.println(enemy.getName() + " died!");
+                player.incExp();
+                System.out.println("You gained 1 EXP!\n");
                 return true;
             }
 
@@ -93,6 +95,7 @@ public class Fight {
             if (player.getHP() <= 0) {
                 return false;
             }
+
         } while (true);
 
     }
