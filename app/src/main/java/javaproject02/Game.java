@@ -14,16 +14,23 @@ public class Game {
     private void init() {
         menu = Menu.getInstance();
         saveFile = new SaveFile();
-        player = new Player("Player", new CharacterStats(10, 2), new Inventory(2, 1));
+        System.out.println("What is your name?");
+        var name = menu.nextString();
+        player = new Player(name, new CharacterStats(10, 2), new Inventory(2, 1));
     }
 
-    public void run() {
-        // levelOne();
-        player.incExp();
-        player.incExp();
+    /**
+     * start the game
+     * @return true if won, false if died
+     */
+    public boolean run() {
+        if (!levelOne()) return false; 
         checkpoint();
 
+        if (!levelTwo()) return false;
+
         System.out.println("You have conquered the dungeon!");
+        return true;
     }
 
     /**
@@ -63,7 +70,7 @@ public class Game {
                 break;
         }
 
-        System.out.println("You enter the next room and find the wall inscribed with the text 'y=x^2-2x+1'.");
+        System.out.println("You enter the next room and find the wall inscribed with the text 'y=x²-2x+1'.");
         System.out.println("There are four doors that stand before you numbered -1, 0, 1, 2");
 
         int puzzle = menu.ask(new String[]{"Door numbered -1", "Door numbered 0", "Door numbered 1", "Door numbered 2"});
@@ -79,6 +86,12 @@ public class Game {
             
         }
 
+        return true;
+    }
+
+    public boolean levelTwo() {
+        System.out.println("As you push past the great slab of stone, you fall into a trap and can't go back!");
+        System.out.println("You land in a cave appearing well inhabited");
         return true;
     }
 

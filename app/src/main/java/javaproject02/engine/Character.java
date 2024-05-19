@@ -64,7 +64,11 @@ public class Character implements Serializable {
      * @param hp amount to increase by
      */
     public void heal(int hp) {
-        this.currentStats.hp += hp;
+        if (currentStats.hp + hp > maxStats.hp) {
+            currentStats.hp = maxStats.hp;
+        } else {
+            this.currentStats.hp += hp;
+        }
     }
 
     /**

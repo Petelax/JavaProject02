@@ -8,6 +8,8 @@ public class Fight {
     private Character enemy;
     private Menu menu = Menu.getInstance();
     private Random random;
+    private static final int POTION_HEAL_HP = 5;
+    private static final int THROWING_KNIFE_DAMAGE = 3;
     public Fight(Player a, Character b) {
         this.player = a;
         this.enemy = b;
@@ -61,11 +63,11 @@ public class Fight {
                         if (arr[ans1].contains("Potions")) {
                             System.out.println("You used a potion!");
                             player.setInventory(new Inventory(inv.potions-1, inv.throwingKnives));
-                            player.heal(2);
+                            player.heal(POTION_HEAL_HP);
                         } else if (arr[ans1].contains("Throwing")) {
                             System.out.println("You threw a knife!");
                             player.setInventory(new Inventory(inv.potions, inv.throwingKnives-1));
-                            enemy.receiveAttack(3);
+                            enemy.receiveAttack(THROWING_KNIFE_DAMAGE);
                         }
 
                     }

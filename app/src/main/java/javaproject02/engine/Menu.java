@@ -66,5 +66,9 @@ public class Menu {
         return getValidChoice(options.length)-1;
     }
 
+    public String nextString() {
+        return scanner.nextLine();
+    }
+
 
 }
